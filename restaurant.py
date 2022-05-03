@@ -2,6 +2,7 @@ class Table:
     def __init__ (self,people):
         self.bill = []
         self.people = people
+        self.total = 0
 
     def order (self, item, price, quantity=1) -> list:
         if self.bill == []:
@@ -44,11 +45,16 @@ class Table:
                 total += x['price'] * x['quantity']
             return total
 
-    def get_total (self,service_charge = 0.1):
-        subtotal  =self.get_subtotal()
-
+    def get_total (self,service_charge=0.1):
+        subtotal = self.get_subtotal()
+        self.total = subtotal + subtotal * service_charge
         return {'Sub Total': f'£{subtotal:.2f}', 'Service Charge': f'£{subtotal*service_charge:.2f}',
-                'Total': f'£{subtotal+subtotal*service_charge:.2f}'}
+                'Total': f'£{self.total:.2f}'}
+
+    @property
+    def split_bill(self):
+        self.total = (((self.total * 100)/self.people))/100
+        return f'£{self.total:.2f}'
 
 
 
@@ -58,3 +64,4 @@ table01.order("Risotto", 12.50, 2)
 table01.order("Risotto", 12.50, 2)
 table01.order("chicken", 12.50, 2)
 print(table01.get_total())
+print(table01.split_bill)
