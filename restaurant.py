@@ -34,6 +34,15 @@ class Table:
         else:
             return False
 
-
+    # get the total cost for the table based on quantities and prices in the bill
     def get_subtotal(self):
-        pass
+        bill_total = 0
+        item_total = 0
+        if len(self.bill) != 0:
+            for i in self.bill:
+                item_total = i["price"] * i["quantity"]
+                bill_total += item_total
+            self._subtotal = bill_total
+            return round(self._subtotal, 2)
+        else:
+            pass
