@@ -19,8 +19,8 @@ class Table:
             self.bill.append({"item": item, "price": price, "quantity": quantity})
 
 
-    method to remove bill items
-    passes test_remove_no_item
+    # method to remove bill items
+    # passes test_remove_no_item
     def remove(self, item, price, quantity = 1):
         for i in self.bill:
             if {"item": item, "price": price, "quantity": quantity} == i:
