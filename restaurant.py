@@ -9,6 +9,10 @@ class Table:
         self.price = price
 
 
+    def order(self):
+        pass
+
+
     def remove(self):
         pass
 
