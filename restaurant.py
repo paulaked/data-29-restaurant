@@ -12,7 +12,15 @@ class Table:
     def remove(self):
 
 
+    def get_subtotal(self):
+        pass
 
+
+    def get_total(self):
+        pass
+
+    def split_bill(self):
+        pass
 
 
 
