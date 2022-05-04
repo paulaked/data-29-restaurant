@@ -1,6 +1,6 @@
 from restaurant import Table
 
-table_one = Table(1)
+table_one = Table(1,2)
 # print(table_one.table_number)
 # print(table_one.bill)
 table_one.order('salad', 12, 1)
@@ -13,3 +13,5 @@ table_one.remove('hagis', 2)
 print(table_one.bill)
 table_one.get_subtotal()
 print(table_one.sub_total)
+table_one.get_total()
+print(table_one.total)

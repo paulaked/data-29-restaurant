@@ -1,9 +1,11 @@
 class Table():
     # pass
-    def __init__(self, table_number):
+    def __init__(self, table_number, guests):
         self.table_number = table_number
+        self.guests = guests
         self.bill = []
         self.sub_total = 0
+        self.total = 0
 
     def order(self, item, price, quantity=1):
         add_order = {
@@ -57,3 +59,18 @@ class Table():
             self.sub_total += i['price'] * i['quantity']
 
         print(self.sub_total)
+
+    def get_total(self, ser_charge=10):
+        ser_charge_amt = self.sub_total * (ser_charge / 100)
+        total_amt = self.sub_total + ser_charge_amt
+
+        total_summary = {}
+        total_summary['Sub total'] = self.sub_total
+        total_summary['Service charge'] = ser_charge_amt
+        total_summary['Total'] = total_amt
+        print(total_summary)
+        self.total = str(total_summary)
+
+    def split_bill(self):
+        pass
+
