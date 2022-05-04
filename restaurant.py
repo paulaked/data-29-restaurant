@@ -1,2 +1,19 @@
 class Table:
-    pass
+
+    def __init__(self, num_of_people):
+        self.num_of_people = num_of_people
+        self.bill = []
+
+    def order(self, item, price):
+        self.item = item
+        self.price = price
+
+
+    def remove(self):
+        pass
+
+    def get_subtotal(self):
+        pass
+
+    def split_bill(self):
+        pass
