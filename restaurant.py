@@ -12,9 +12,7 @@ class Table:
         new_item = True
         if len(self.bill) > 0:
             for i in self.bill:
-                print(i)
                 if i["item"] == item and i["price"] == price:
-                    print(i)
                     i["quantity"] += quantity
                     new_item = False
         if new_item:
@@ -47,11 +45,14 @@ class Table:
         else:
             pass
 
+    # get the total, service charge, subtotal, returns a dictionary
+    def get_total(self, service_charge_rate = 0.1):
+        subtotal = (self.get_subtotal())
+        self._total = (subtotal * (1+service_charge_rate))
+        service_charge = (subtotal * service_charge_rate)
+        return {"Sub Total": "£{:,.2f}".format(subtotal), "Service Charge": "£{:,.2f}".format(service_charge),
+                "Total": "£{:,.2f}".format(self._total)}
 
-table02 = Table(2)
-
-table02.order('Food2', 20.00, 3)
-table02.order('Food2', 20.00, 1)
-table02.order('Food3', 0.50, 1)
-
-print(table02.bill)
+    # no inputs, returns the subtotal / diners as float to 2 decimal places
+    def split_bill(self):
+        return round((self.get_subtotal()/self.diners), 2)
