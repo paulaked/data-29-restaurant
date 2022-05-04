@@ -8,19 +8,9 @@ class Table:
 
     # method to append a menu item to the bill
     def order(self, item, price, quantity = 1):
-
         food_item = {"item": item, "price": price, "quantity": quantity}
-        amend_list = []
-        append_list = []
-        if len(self.bill) > 0:
-            for i in self.bill:
-                if i["item"] == food_item["item"] and i["price"] == food_item["price"]:
-                    i["quantity"] += food_item["quantity"]
-                else:
-                    self.bill.append(i)
-        else:
+        if food_item not in self.bill:
             self.bill.append(food_item)
-
         return self.bill
 
 
@@ -54,7 +44,7 @@ class Table:
 
 table02 = Table(2)
 
-table02.order('Food1', 10.00, 3)
+table02.order('Food2', 20.00, 3)
 table02.order('Food2', 20.00, 1)
 table02.order('Food3', 0.50, 1)
 
