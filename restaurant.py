@@ -1,2 +1,9 @@
 class Table:
-    pass
+    def __init__(self, item, price, quantity):
+        self.item = item
+        self.price = price
+        self.quantity = quantity
+
+
+
+
