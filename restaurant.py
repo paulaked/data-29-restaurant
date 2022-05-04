@@ -3,8 +3,6 @@ class Table:
     def __init__(self, diners: int):
         self.diners = diners
         self.bill = []
-        self._total = 0
-        self._subtotal = 0
 
     # method to append a menu item to the bill
     def order(self, item, price, quantity = 1):
@@ -17,7 +15,6 @@ class Table:
                     new_item = False
         if new_item:
             self.bill.append(food_item)
-
 
     # method to remove bill items
     def remove(self, item, price, quantity = 1):
@@ -40,18 +37,17 @@ class Table:
             for i in self.bill:
                 item_total = i["price"] * i["quantity"]
                 bill_total += item_total
-            self._subtotal = round(bill_total, 2)
-            return self._subtotal
+            return round(bill_total, 2)
         else:
             pass
 
     # get the total, service charge, subtotal, returns a dictionary
     def get_total(self, service_charge_rate = 0.1):
         subtotal = (self.get_subtotal())
-        self._total = (subtotal * (1+service_charge_rate))
+        total = (subtotal * (1+service_charge_rate))
         service_charge = (subtotal * service_charge_rate)
         return {"Sub Total": "£{:,.2f}".format(subtotal), "Service Charge": "£{:,.2f}".format(service_charge),
-                "Total": "£{:,.2f}".format(self._total)}
+                "Total": "£{:,.2f}".format(total)}
 
     # no inputs, returns the subtotal / diners as float to 2 decimal places
     def split_bill(self):
