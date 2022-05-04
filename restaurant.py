@@ -29,20 +29,17 @@ class Table:
                 total +=  i["price"] * i["quantity"]
         return total
 
-    def get_total(self):
-        
-        pass
-    # return a diet with the keys : sub total (use get subtotal), service charge
-    # calculating the total for each price of item by quantiity
-    # total (subtotal + service charge)
-    # values returned to two decimal places
+    def get_total(self, service_charge):
+        self.get_subtotal()
+        total_service_charge = total * service_charge
+        final_total = total_service_charge + total
+        total = {"Sub Total":total,"Service Charge":total_service_charge ,"Final Total":final_total}
+
 
 
     def split_bill(self):
-        pass
-    #subtotal/num of peoples
-    #
-    #
+        self.get_subtotal()
+        return self.total/self.number_of_people
 
 
 
