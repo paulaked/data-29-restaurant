@@ -1,3 +1,5 @@
+import ast
+
 class Table():
     # pass
     def __init__(self, table_number, guests):
@@ -72,5 +74,7 @@ class Table():
         self.total = str(total_summary)
 
     def split_bill(self):
-        pass
+        str_to_dict = ast.literal_eval(self.total)
+        str_to_dict['Total'] / self.guests
+        print(str_to_dict['Total'] / self.guests)
 
