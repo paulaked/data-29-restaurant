@@ -9,17 +9,23 @@ class Table:
     # method to append a menu item to the bill
     def order(self, item, price, quantity = 1):
         food_item = {"item": item, "price": price, "quantity": quantity}
-        if food_item not in self.bill:
+        new_item = True
+        if len(self.bill) > 0:
+            for i in self.bill:
+                print(i)
+                if i["item"] == item and i["price"] == price:
+                    print(i)
+                    i["quantity"] += quantity
+                    new_item = False
+        if new_item:
             self.bill.append(food_item)
-        return self.bill
-
 
 
     # method to remove bill items
     def remove(self, item, price, quantity = 1):
         if len(self.bill) != 0:
             for i in self.bill:
-                if item == i["item"]:
+                if item == i["item"] and price == i["price"]:
                     if i["quantity"] - quantity <= 0:
                         self.bill.remove(i)
                     else:
