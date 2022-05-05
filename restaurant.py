@@ -32,16 +32,16 @@ class Table():
                     x['quantity'] += quantity
 
     def remove(self, item, price, quantity=1):
-        delete_order = {
-            'item': item,
-            'price': price,
-            'quantity': quantity
-        }
+        # delete_order = {
+        #     'item': item,
+        #     'price': price,
+        #     'quantity': quantity
+        # }
 
         temp_list = []
 
-        # for i in self.bill:
-        #     temp_list.append(i['item'])
+        for i in self.bill:
+            temp_list.append(i['item'])
 
         for i in self.bill:
             temp_list.append(i['item'])
