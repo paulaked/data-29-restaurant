@@ -1,10 +1,13 @@
+# When made, these were the functioning code. Now attempting to alter code for testing purposes
+
+
 import ast
 
 class Table():
     # pass
-    def __init__(self, table_number):
+    def __init__(self, table_number, guests):
         self.table_number = table_number
-        # self.guests = guests
+        self.guests = guests
         self.bill = []
         self.sub_total = 0
         self.total = 0
@@ -31,10 +34,9 @@ class Table():
                 if item == x['item']:
                     x['quantity'] += quantity
 
-    def remove(self, item, price, quantity=1):
+    def remove(self, item, quantity=1):
         delete_order = {
             'item': item,
-            'price': price,
             'quantity': quantity
         }
 
