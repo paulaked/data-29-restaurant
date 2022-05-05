@@ -40,8 +40,8 @@ class Table():
 
         temp_list = []
 
-        for i in self.bill:
-            temp_list.append(i['item'])
+        # for i in self.bill:
+        #     temp_list.append(i['item'])
 
         for i in self.bill:
             temp_list.append(i['item'])
