@@ -33,9 +33,9 @@ class Table:
 
     def get_total(self, service_charge):
         self.get_subtotal()
-        total_service_charge = self.total * service_charge
-        final_total = total_service_charge + total
-        new_total = {"Sub Total":total,"Service Charge":total_service_charge ,"Final Total":final_total}
+        service_charge_total = self.total * service_charge
+        final_total = service_charge_total + self.total
+        new_total = {"Sub Total":f"£{self.total}", "Service Charge":f"£{service_charge_total}" , "Final Total":f"£{final_total}"}
         return new_total
 
     def split_bill(self):
