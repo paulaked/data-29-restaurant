@@ -75,8 +75,8 @@ class Table():
         print(total_summary)
         self.total = str(total_summary)
 
-    def split_bill(self):
+    def split_bill(self, guests=3):
         str_to_dict = ast.literal_eval(self.total)
-        str_to_dict['Total'] / self.guests
-        print(str_to_dict['Total'] / self.guests)
+        str_to_dict['Total'] / guests
+        print(str_to_dict['Total'] / guests)
 
