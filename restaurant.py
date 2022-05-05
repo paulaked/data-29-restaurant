@@ -64,8 +64,9 @@ class Table():
 
         print(self.sub_total)
 
-    def get_total(self, ser_charge=10):
-        ser_charge_amt = self.sub_total * (ser_charge / 100)
+    def get_total(self, ser_charge=0.10):
+        # ser_charge_amt = self.sub_total * (ser_charge / 100)
+        ser_charge_amt = self.sub_total * (ser_charge)
         total_amt = self.sub_total + ser_charge_amt
 
         total_summary = {}
@@ -75,7 +76,8 @@ class Table():
         print(total_summary)
         self.total = str(total_summary)
 
-    def split_bill(self, guests=3):
+    def split_bill(self, guests=4):
+        # Code directly below converts a Dict to a Str. Note the import
         str_to_dict = ast.literal_eval(self.total)
         str_to_dict['Total'] / guests
         print(str_to_dict['Total'] / guests)
