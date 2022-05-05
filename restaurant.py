@@ -12,12 +12,14 @@ class Table:
             self.bill.append(new_order)
         return self.bill
 
-    def remove(self, item, quantity):
+    def remove(self, item,price, quantity):
+        for i in range(0, len(self.bill)):
+            if self.bill[i]["item"] == item and self.bill[i]["price"] == price:
+                if self.bill[i]["quantity"] - int(quantity) >= 1:
+                    self.bill[i]["quantity"] -= int(quantity)
 
-        #new_order = {"item": item, "price": price, "quantity": quantity}
-        pass
-    #edit the bill
-    #returning true or false based on the bill
+                else:
+                    self.bill[i].clear()
 
 
     def get_subtotal(self):
@@ -26,16 +28,15 @@ class Table:
             return 0
         else:
             for i in self.bill:
-                total +=  i["price"] * i["quantity"]
-        return total
+                self.total +=  i["price"] * i["quantity"]
+        return self.total
 
     def get_total(self, service_charge):
         self.get_subtotal()
-        total_service_charge = total * service_charge
+        total_service_charge = self.total * service_charge
         final_total = total_service_charge + total
-        total = {"Sub Total":total,"Service Charge":total_service_charge ,"Final Total":final_total}
-
-
+        new_total = {"Sub Total":total,"Service Charge":total_service_charge ,"Final Total":final_total}
+        return new_total
 
     def split_bill(self):
         self.get_subtotal()
